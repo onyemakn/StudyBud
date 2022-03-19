@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -11,8 +12,9 @@ rooms = [
 
 
 def home(request):
-	return render(request, 'home.html', {'rooms': rooms})
+	context = {'rooms': rooms}
+	return render(request, 'base/home.html', context)
 
 def room(request):
-	return render(request, 'room.html')
+	return render(request, 'base/room.html')
  
